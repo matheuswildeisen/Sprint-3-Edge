@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "Passa a Bola IoT",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "esp32", "id": "esp32", "top": -20, "left": 0, "rotate": 0, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 160, "left": -120, "attrs": {} },
+    { "type": "dht22", "id": "dht1", "top": 160, "left": 100, "attrs": {} },
+    { "type": "wokwi-oled128x64-i2c", "id": "oled1", "top": -160, "left": 120, "attrs": {} },
+    { "type": "pushbutton", "id": "btn1", "top": 100, "left": -20, "attrs": {} }
+  ],
+  "connections": [
+    ["pir1:VCC", "esp32:3V3", "red", ["v0"]],
+    ["pir1:GND", "esp32:GND.1", "black", ["h0"]],
+    ["pir1:OUT", "esp32:14", "green", ["h0"]],
+
+    ["dht1:VCC", "esp32:3V3", "red", ["h0"]],
+    ["dht1:GND", "esp32:GND.2", "black", ["h0"]],
+    ["dht1:DATA", "esp32:15", "blue", ["h0"]],
+
+    ["oled1:SDA", "esp32:21", "green", ["h0"]],
+    ["oled1:SCL", "esp32:22", "blue", ["h0"]],
+    ["oled1:VCC", "esp32:3V3", "red", ["h0"]],
+    ["oled1:GND", "esp32:GND.3", "black", ["h0"]],
+
+    ["btn1:1.l", "esp32:4", "yellow", ["h0"]],
+    ["btn1:2.l", "esp32:GND.4", "black", ["h0"]]
+  ]
+}
